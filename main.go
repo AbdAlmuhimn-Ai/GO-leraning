@@ -9,8 +9,9 @@ func main() {
 	p :=catalog.Product{
 		Name:     "Mouse",
 		Price:    20,
-		Quantity: 2,
+		Quantity: 3,
 	}
 
-	fmt.Println(p.Name, p.Total())
+	fmt.Println(p.Name)
+	fmt.Println(p.Total())
 }
