@@ -1,8 +1,8 @@
 package catalog
 
 type Service struct {
-	Name string
-	Rate int
+	Name     string
+	Rate     int
 	Sessions int
 }
 

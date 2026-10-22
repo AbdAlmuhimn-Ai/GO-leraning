@@ -2,20 +2,9 @@ package main
 
 import (
 	"example.com/academy/catalog"
+	"example.com/academy/report"
 	"fmt"
 )
-
-type Valuable interface {
-	Total() int
-}
-
-func reportTotal(items []Valuable) int {
-	total := 0
-	for i := 0; i < len(items); i++ {
-		total += items[i].Total()
-	}
-	return total
-}
 
 func main() {
 
@@ -52,7 +41,7 @@ func main() {
 		fmt.Println(p.Total())
 	}
 
-	items := []Valuable{
+	items := []report.Valuable{
 		p,
 		catalog.Service{
 			Name:     "Design",
@@ -65,9 +54,11 @@ func main() {
 			Quantity: 2,
 		},
 	}
-	fmt.Println(items[0].Total())
-	fmt.Println(items[1].Total())
-	fmt.Println(items[2].Total())
-	fmt.Println(reportTotal(items))
+	for i := 0; i < len(items); i++ {
+		fmt.Println(items[i].Total())
+	}
+
+	fmt.Println(report.Sum(items))
+	fmt.Println(report.CountAbove(items, 50))
 
 }
