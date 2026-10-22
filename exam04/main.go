@@ -1,8 +1,8 @@
 package main
 
 import (
-	"example.com/exam04/rental"
-	"example.com/exam04/report"
+	"example.com/academy/exam04/rental"
+	"example.com/academy/exam04/report"
 	"fmt"
 )
 

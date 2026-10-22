@@ -3,7 +3,7 @@ package report
 import (
 	"testing"
 
-	"example.com/exam04/rental"
+	"example.com/academy/exam04/rental"
 )
 
 func TestSum(t *testing.T) {
