@@ -11,10 +11,9 @@ func FindProductIndex(products []Product, name string) int {
 	return -1
 }
 func SellByName(products []Product, name string, amount int) error {
-	for i := range products {
-		if products[i].Name == name {
-			return products[i].Sell(amount)
-		}
+	idx := FindProductIndex(products, name)
+	if idx == -1 {
+		return errors.New("product not found")
 	}
-	return errors.New("product not found")
+	return products[idx].Sell(amount)
 }
