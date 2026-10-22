@@ -61,4 +61,36 @@ func main() {
 	fmt.Println(report.Sum(items))
 	fmt.Println(report.CountAbove(items, 50))
 
+	stock := []catalog.Product{
+		{
+			Name:     "Mouse",
+			Price:    20,
+			Quantity: 3,
+		},
+		{
+			Name:     "Keyboard",
+			Price:    15,
+			Quantity: 2,
+		},
+	}
+
+	err = catalog.SellByName(stock, "Mouse", 2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Sold Mouse")
+		fmt.Println(stock[catalog.FindProductIndex(stock, "Mouse")].Quantity)
+	}
+	fmt.Println(catalog.SellByName(stock, "Rust", 2))
+	fmt.Println(catalog.SellByName(stock, "Keyboard", 3))
+	fmt.Println(catalog.SellByName(stock, "Mouse", -1))
+	fmt.Println(stock[catalog.FindProductIndex(stock, "Mouse")].Quantity)
+	fmt.Println(stock[catalog.FindProductIndex(stock, "Keyboard")].Quantity)
+
+	deposit := []report.Valuable{
+		stock[0],
+		stock[1],
+	}
+	
+	fmt.Println(report.Sum(deposit))
 }
