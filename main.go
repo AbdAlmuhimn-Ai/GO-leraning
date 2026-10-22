@@ -5,24 +5,21 @@ import (
 	"fmt"
 )
 
-type Valuable interface{
+type Valuable interface {
 	Total() int
 }
 
-
 func reportTotal(items []Valuable) int {
 	total := 0
-	for i:=0 ;i < len(items);i++{
+	for i := 0; i < len(items); i++ {
 		total += items[i].Total()
 	}
 	return total
 }
 
-
-
 func main() {
 
-	p :=catalog.Product{
+	p := catalog.Product{
 		Name:     "Mouse",
 		Price:    20,
 		Quantity: 3,
@@ -31,7 +28,7 @@ func main() {
 	err := p.Sell(2)
 	if err != nil {
 		fmt.Println(err)
-	}else{
+	} else {
 		fmt.Println("Sold")
 		fmt.Println(p.Quantity)
 	}
@@ -49,7 +46,7 @@ func main() {
 	err = p.Restock(4)
 	if err != nil {
 		fmt.Println(err)
-	}else{
+	} else {
 		fmt.Println("Restocked")
 		fmt.Println(p.Quantity)
 		fmt.Println(p.Total())
