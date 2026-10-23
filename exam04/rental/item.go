@@ -3,11 +3,11 @@ package rental
 import "errors"
 
 type Item struct {
-    Code      string
-    Name      string
-    DailyRate int
-    Available int
-    Rented    int
+	Code      string
+	Name      string
+	DailyRate int
+	Available int
+	Rented    int
 }
 
 func (i Item) Value() int {

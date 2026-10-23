@@ -30,4 +30,21 @@ func TestCountAbove(t *testing.T) {
 	if CountAbove(items, 25) != 2 || CountAbove(empty, 25) != 0 {
 		t.Fatalf("CountAbove failed for threshold 25 or empty slice")
 	}
+
+}
+
+func TestCountAboveBoundary(t *testing.T) {
+	items := []Valuable{
+		rental.Item{DailyRate: 30, Available: 1},
+		rental.Item{DailyRate: 30, Available: 3},
+	}
+	got30 := CountAbove(items, 30)
+	if got30 != 1 {
+		t.Fatalf("CountAbove(items, 30) = %d; want 1", got30)
+	}
+
+	got90 := CountAbove(items, 90)
+	if got90 != 0 {
+		t.Fatalf("CountAbove(items, 90) = %d; want 0", got90)
+	}
 }
